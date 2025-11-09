@@ -93,10 +93,8 @@ describe('Fake Store API - Integration Tests', () => {
     test('GET /products/999 returnerar 404 eller tomt objekt', async () => {
       try {
         const response = await axios.get(`${BASE_URL}/products/999`);
-        // Vissa API:er returnerar null eller tomt objekt
         expect(response.data).toBeNull();
       } catch (error) {
-        // Om API:et returnerar 404
         expect(error.response.status).toBe(404);
       }
     });
@@ -109,7 +107,6 @@ describe('Fake Store API - Integration Tests', () => {
       expect(response.data).toBeInstanceOf(Array);
       expect(response.data.length).toBeGreaterThan(0);
       
-      // Kontrollera att vissa kända kategorier finns
       expect(response.data).toContain('electronics');
       expect(response.data).toContain('jewelery');
     });
@@ -124,46 +121,3 @@ describe('Fake Store API - Integration Tests', () => {
     });
   });
 });
-```
-
-5. **Scrolla ner och klicka "Commit changes"**
-6. **Klicka "Commit changes" igen i popup**
-
-✅ **Fil 2 klar! Mappen `tests` är också skapad!**
-
----
-
-## 📋 STEG 4: Skapa `.gitignore`
-
-1. **Klicka "Add file"** igen
-2. **Välj "Create new file"**
-3. **I filnamnsrutan, skriv:** `.gitignore`
-4. **Klistra in detta innehåll:**
-```
-# Node modules
-node_modules/
-
-# Coverage directory
-coverage/
-
-# Test results
-test-results/
-
-# Environment variables
-.env
-.env.local
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
