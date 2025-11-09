@@ -26,5 +26,12 @@ jobs:
     - name: Install dependencies
       run: npm install
     
+    # Lägg till en fördröjning innan testerna körs
+    - name: Wait before running tests
+      run: sleep 5
+    
     - name: Run integration tests
       run: npm test
+      continue-on-error: false
+      env:
+        NODE_ENV: test
