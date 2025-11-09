@@ -11,7 +11,7 @@
     "api-testing",
     "jest"
   ],
-  "author": "Adam O´Donoghue",
+  "author": "Adam",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.5.12",
